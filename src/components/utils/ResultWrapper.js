@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import { media } from './_media-queries'
-import { fonts, colors } from './_var'
+import styled from "styled-components";
+import { media } from "./_media-queries";
+import { fonts, colors } from "./_var";
 
 export const Wrapper = styled.div.attrs({
-  className: 'jumbotron'
+  className: "jumbotron",
 })`
   background-color: inherit;
   .title {
@@ -12,9 +12,10 @@ export const Wrapper = styled.div.attrs({
     text-align: center;
     ${media.tablet`font-size: 2.5em`};
     ${media.laptop`font-size: 3em`};
+    color: ${colors.$black};
   }
   .my-4 {
-    background-color: #fff;
+    background-color: ${colors.$black};
     width: 60%;
     ${media.tablet`width: 40%;`};
     ${media.laptop`width: 25%;`};
@@ -34,6 +35,7 @@ export const Wrapper = styled.div.attrs({
     font-family: ${fonts.$titleFont};
     text-align: center;
     ${media.tablet`font-size: 2em`};
+    color: ${colors.$black};
   }
   .list-group {
     padding: 0 2em;
@@ -41,7 +43,12 @@ export const Wrapper = styled.div.attrs({
     ${media.laptop`padding: 0 25em;`};
     .list-group-item {
       background: ${colors.$colorCardBg};
-      background: repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.3), transparent 1px, rgba(0, 0, 0, 0.3) 2px);
+      background: repeating-linear-gradient(
+        135deg,
+        rgba(58, 158, 253, 0.3),
+        transparent 1px,
+        rgba(58, 158, 253, 0.3) 2px
+      );
       background-size: 3px 3px;
       padding: 1em 1.25em;
       font-family: ${fonts.$latoFont};
@@ -69,4 +76,4 @@ export const Wrapper = styled.div.attrs({
       }
     }
   }
-`
+`;

@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import { fonts, colors } from './_var'
-import { media } from './_media-queries'
+import styled from "styled-components";
+import { fonts, colors } from "./_var";
+import { media } from "./_media-queries";
 
 export const IntroCard = styled.div.attrs({
-  className: 'card'
+  className: "card",
 })`
   position: absolute;
   height: 60%;
@@ -12,17 +12,23 @@ export const IntroCard = styled.div.attrs({
   left: 0;
   right: 0;
   margin: auto;
-  box-shadow: 0px -6px 8px 0px rgba(0, 0, 0, 0.1), 0px 6px 8px 0px rgba(0, 0, 0, 0.1),
-    6px 0px 8px 0px rgba(0, 0, 0, 0.1), -6px 0px 8px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -6px 8px 0px rgba(0, 0, 0, 0.1),
+    0px 6px 8px 0px rgba(0, 0, 0, 0.1), 6px 0px 8px 0px rgba(0, 0, 0, 0.1),
+    -6px 0px 8px 0px rgba(0, 0, 0, 0.1);
   background: ${colors.$colorCardBg};
-  background: repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.3), transparent 1px, rgba(0, 0, 0, 0.3) 2px);
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(58, 158, 253, 0.3),
+    transparent 1px,
+    rgba(58, 158, 253, 0.3) 2px
+  );
   background-size: 3px 3px;
   ${media.tablet`width: 90%;`};
   ${media.laptop`width: 60%;`};
   .corner {
     backface-visibility: hidden;
-    border-right: 2px solid #d4cd96;
-    border-top: 2px solid #d4cd96;
+    border-right: 2px solid ${colors.$colorGold};
+    border-top: 2px solid ${colors.$colorGold};
     height: 12px;
     position: absolute;
     width: 12px;
@@ -46,25 +52,30 @@ export const IntroCard = styled.div.attrs({
       transform: rotateZ(90deg);
     }
   }
-`
+`;
 
 export const QuestionCard = styled.div.attrs({
-  className: 'card'
+  className: "card",
 })`
   position: relative;
   width: 100%;
   margin: 0 auto;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
   background: ${colors.$colorCardBg};
-  background: repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.3), transparent 1px, rgba(0, 0, 0, 0.3) 2px);
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(58, 158, 253, 0.3),
+    transparent 1px,
+    rgba(58, 158, 253, 0.3) 2px
+  );
   background-size: 3px 3px;
   color: #fff;
   ${media.tablet`width: 90%;`};
   ${media.laptop`width: 60%;`};
   .corner {
     backface-visibility: hidden;
-    border-right: 2px solid #d4cd96;
-    border-top: 2px solid #d4cd96;
+    border-right: 2px solid ${colors.$colorGold};
+    border-top: 2px solid ${colors.$colorGold};
     height: 12px;
     position: absolute;
     width: 12px;
@@ -88,17 +99,22 @@ export const QuestionCard = styled.div.attrs({
       transform: rotateZ(90deg);
     }
   }
-`
+`;
 
 export const CardDef = styled.div.attrs({
-  className: 'card'
+  className: "card",
 })`
   position: relative;
   width: 100%;
   margin: 0 auto;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
   background: ${colors.$colorCardBg};
-  background: repeating-linear-gradient(135deg, rgba(0, 0, 0, 0.3), transparent 1px, rgba(0, 0, 0, 0.3) 2px);
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(58, 158, 253, 0.3),
+    transparent 1px,
+    rgba(58, 158, 253, 0.3) 2px
+  );
   background-size: 3px 3px;
   color: #fff;
   ${media.tablet`width: 90%;`};
@@ -117,7 +133,7 @@ export const CardDef = styled.div.attrs({
     position: absolute;
     left: 3%;
     top: 2%;
-    color: #fff;
+    color: ${colors.$black};
     text-shadow: none;
     ${media.tablet`font-size: 1.8em;`};
     ${media.laptop`font-size: 2em; top: 5%;`};
@@ -128,5 +144,6 @@ export const CardDef = styled.div.attrs({
     font-family: ${fonts.$latoFont};
     ${media.tablet`font-size: 1.5em; padding: 1.5em 2em;`};
     ${media.laptop`font-size: 2em; padding: 1em 2.5em;`};
+    color: ${colors.$black};
   }
-`
+`;

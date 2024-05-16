@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { fonts } from '../utils/_var'
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import { colors, fonts } from "../utils/_var";
 
 const Wrapper = styled.div`
   .row {
@@ -12,25 +12,26 @@ const Wrapper = styled.div`
         font-size: 1.3rem;
         font-family: ${fonts.$mainFont};
         text-align: center;
+        color: black;
       }
     }
   }
-`
+`;
 
-const Question = props => {
+const Question = (props) => {
   return (
     <Wrapper>
       <div className="row">
         <div className="col">
-          <h1>{props.content}</h1>
+          <h1 style={{ color: colors.$darkBlue }}>{props.content}</h1>
         </div>
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
 Question.PropTypes = {
-  content: PropTypes.string.isRequired
-}
+  content: PropTypes.string.isRequired,
+};
 
-export default Question
+export default Question;
