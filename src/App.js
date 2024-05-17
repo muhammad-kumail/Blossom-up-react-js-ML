@@ -40,7 +40,7 @@ class App extends Component {
             flexDirection: "row",
           }}
         >
-          Blossom<span style={{ color: colors.$orange }}>Up</span>
+          Edu<span style={{ color: colors.$orange }}>Vision</span>
         </h1>
         {showQuestion ? this.renderQuestion() : this.renderIntro()}
       </div>
