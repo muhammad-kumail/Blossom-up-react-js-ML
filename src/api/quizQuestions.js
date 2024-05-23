@@ -12,7 +12,7 @@ var quizQuestions = [
         content: "Strongly Agree",
       },
       {
-        type: "J,Brown,D",
+        type: "J,Brown,D2",
         content: "Agree",
       },
       {
@@ -24,7 +24,7 @@ var quizQuestions = [
         content: "Disagree",
       },
       {
-        type: "J,Brown,D,No",
+        type: "J,Brown,D,No2",
         content: "Strongly Disagree",
       },
     ],
@@ -39,7 +39,7 @@ var quizQuestions = [
         content: "Strongly Agree",
       },
       {
-        type: "N,Green,C",
+        type: "N,Green,C2",
         content: "Agree",
       },
       {
@@ -51,7 +51,7 @@ var quizQuestions = [
         content: "Disagree",
       },
       {
-        type: "N,Green,C,No",
+        type: "N,Green,C,No2",
         content: "Strongly Disagree",
       },
     ],
@@ -66,7 +66,7 @@ var quizQuestions = [
         content: "Strongly Agree",
       },
       {
-        type: "S,Red,A",
+        type: "S,Red,A2",
         content: "Agree",
       },
       {
@@ -78,7 +78,7 @@ var quizQuestions = [
         content: "Disagree",
       },
       {
-        type: "S,Red,A,No",
+        type: "S,Red,A,No2",
         content: "Strongly Disagree",
       },
     ],
@@ -92,7 +92,7 @@ var quizQuestions = [
         content: "Strongly Agree",
       },
       {
-        type: "J,Brown,D",
+        type: "J,Brown,D2",
         content: "Agree",
       },
       {
@@ -104,7 +104,7 @@ var quizQuestions = [
         content: "Disagree",
       },
       {
-        type: "J,Brown,D,No",
+        type: "J,Brown,D,No2",
         content: "Strongly Disagree",
       },
     ],
@@ -119,7 +119,7 @@ var quizQuestions = [
         content: "Strongly Agree",
       },
       {
-        type: "T,Brown,C",
+        type: "T,Brown,C2",
         content: "Agree",
       },
       {
@@ -131,7 +131,7 @@ var quizQuestions = [
         content: "Disagree",
       },
       {
-        type: "T,Brown,C,No",
+        type: "T,Brown,C,No2",
         content: "Strongly Disagree",
       },
     ],

@@ -102,6 +102,7 @@ class Colors extends Component {
     }
     return (
       <Wrapper className="jumbotron">
+        <br />
         <h1 className="display-3 title">Result</h1>
         {/* Color results */}
         <hr className="my-4" />
