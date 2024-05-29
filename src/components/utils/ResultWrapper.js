@@ -37,6 +37,17 @@ export const Wrapper = styled.div.attrs({
     ${media.tablet`font-size: 2em`};
     color: ${colors.$black};
   }
+  .lead2 {
+    font-family: ${fonts.$titleFont};
+    text-align: center;
+    ${media.tablet`font-size: 1em`};
+    color: ${colors.$black};
+  }
+  .bold-italic {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.2em;
+  }
   .list-group {
     padding: 0 2em;
     ${media.tablet`padding: 0 5em;`};

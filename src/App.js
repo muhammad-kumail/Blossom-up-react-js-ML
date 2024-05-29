@@ -42,6 +42,40 @@ class App extends Component {
         >
           Edu<span style={{ color: colors.$orange }}>Vision</span>
         </h1>
+        <p
+          style={{
+            position: "absolute",
+            bottom: "10px",
+            right: "20px",
+            zIndex: 2,
+          }}
+        >
+          <h6
+            style={{
+              color: colors.$colorGold,
+              textAlign: "right",
+            }}
+          >
+            Questions approved by:
+          </h6>
+          <h6
+            style={{
+              color: colors.$colorGold,
+              fontWeight: "bold",
+              textAlign: "right",
+            }}
+          >
+            Ma'am Marium Raza
+          </h6>
+          <h6
+            style={{
+              color: colors.$colorGold,
+              textAlign: "right",
+            }}
+          >
+            Clinical Psychologist
+          </h6>
+        </p>
         {showQuestion ? this.renderQuestion() : this.renderIntro()}
       </div>
     );

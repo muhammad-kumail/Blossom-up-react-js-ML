@@ -108,7 +108,25 @@ class Colors extends Component {
         <hr className="my-4" />
         {/* <h2 className="display-6 resultTxt">{this.props.resultColors}</h2> */}
         <hr className="my-5" />
-        <p className="lead">Please wait for your result</p>
+        {/* <p className="lead">Please wait for your result</p> */}
+        <p className="lead2">
+          You have <span className="bold-italic">high</span> analytical skills
+        </p>
+        <p className="lead2">
+          You have <span className="bold-italic">moderate</span> technical
+          skills
+        </p>
+        <p className="lead2">
+          You have <span className="bold-italic">high</span> organizational
+          skills
+        </p>
+        <p className="lead2">
+          <span className="bold-italic">You like to learn new skills</span>
+        </p>
+        <p className="lead2">
+          You might be interested in learning more about{" "}
+          <span className="bold-italic">technology</span>
+        </p>
         {/* <ul className="list-group">
           <li className="list-group-item" onClick={this.onBrownDefClick}>
             Brown
