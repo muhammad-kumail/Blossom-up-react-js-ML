@@ -1,7 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { fonts, colors } from '../utils/_var'
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import { fonts, colors } from "../utils/_var";
 
 const Wrapper = styled.div`
   li {
@@ -32,7 +32,7 @@ const Wrapper = styled.div`
       font-family: ${fonts.$mainFont};
       color: ${colors.$colorGold};
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: 5px;
         left: 1rem;
@@ -49,14 +49,14 @@ const Wrapper = styled.div`
       }
     }
   }
-`
+`;
 
-const AnswerOption = props => {
+const AnswerOption = (props) => {
   return (
     <Wrapper>
       <li>
         <input
-          checked={props.answerType === props.answer}
+          checked={props.answerType == Number(props.answer || -3)}
           id={props.answerType}
           value={props.answerType}
           name={props.answerType}
@@ -69,14 +69,14 @@ const AnswerOption = props => {
         </label>
       </li>
     </Wrapper>
-  )
-}
+  );
+};
 
 AnswerOption.PropTypes = {
   answerType: PropTypes.string.isRequired,
   answerContent: PropTypes.string.isRequired,
   answer: PropTypes.string.isRequired,
-  onAnswerSelected: PropTypes.func.isRequired
-}
+  onAnswerSelected: PropTypes.func.isRequired,
+};
 
-export default AnswerOption
+export default AnswerOption;

@@ -13,11 +13,31 @@ class Colors extends Component {
       showGreenDef: false,
       showBlueDef: false,
       showRedDef: false,
+      predictions: [],
     };
     this.onBrownDefClick = this.onBrownDefClick.bind(this);
     this.onGreenDefClick = this.onGreenDefClick.bind(this);
     this.onBlueDefClick = this.onBlueDefClick.bind(this);
     this.onRedDefClick = this.onRedDefClick.bind(this);
+  }
+  componentDidMount() {
+    fetch("http://0.0.0.0:5000/predict", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ features: [this.props.features] }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("🚀 ~ Colors ~ fetch ~ res.data:", data);
+        this.setState({
+          predictions: data.predictions[0],
+        });
+      })
+      .catch((err) => {
+        console.log("🚀 ~ Colors ~ fetch ~ err.message:", err.message);
+      });
   }
 
   renderNextBtn() {
@@ -32,6 +52,18 @@ class Colors extends Component {
         </div>
       </NextBtn>
     );
+  }
+  predText(val) {
+    switch (val) {
+      case 0:
+        return "low";
+      case 1:
+        return "moderate";
+      case 2:
+        return "high";
+      default:
+        return null;
+    }
   }
 
   renderBrownDef() {
@@ -110,22 +142,39 @@ class Colors extends Component {
         <hr className="my-5" />
         {/* <p className="lead">Please wait for your result</p> */}
         <p className="lead2">
-          You have <span className="bold-italic">high</span> analytical skills
+          You have{" "}
+          <span className="bold-italic">
+            {this.predText(this.state.predictions[0])}
+          </span>{" "}
+          analytical skills
         </p>
         <p className="lead2">
-          You have <span className="bold-italic">moderate</span> technical
-          skills
+          You have{" "}
+          <span className="bold-italic">
+            {this.predText(this.state.predictions[1])}
+          </span>{" "}
+          technical skills
         </p>
         <p className="lead2">
-          You have <span className="bold-italic">high</span> organizational
-          skills
+          You have{" "}
+          <span className="bold-italic">
+            {this.predText(this.state.predictions[2])}
+          </span>{" "}
+          organizational skills
         </p>
         <p className="lead2">
-          <span className="bold-italic">You like to learn new skills</span>
+          You have{" "}
+          <span className="bold-italic">
+            {this.predText(this.state.predictions[4])}
+          </span>{" "}
+          interest in learning new skills
         </p>
         <p className="lead2">
-          You might be interested in learning more about{" "}
-          <span className="bold-italic">technology</span>
+          You have{" "}
+          <span className="bold-italic">
+            {this.predText(this.state.predictions[3])}
+          </span>{" "}
+          interest in technology
         </p>
         {/* <ul className="list-group">
           <li className="list-group-item" onClick={this.onBrownDefClick}>

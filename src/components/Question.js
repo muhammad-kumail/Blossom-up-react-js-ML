@@ -49,6 +49,7 @@ class Question extends Component {
           P: 5,
         },
       },
+      features: [],
       resultBriggs: "",
       resultColors: "",
       resultLetters: "",
@@ -87,6 +88,7 @@ class Question extends Component {
     this.setState({
       answersCount: applyAnswer(answer),
       answer: answer,
+      features: [...this.state.features, Number(answer)],
     });
   }
 
@@ -105,10 +107,6 @@ class Question extends Component {
 
   // setting the answer and then setting the next question
   handleAnswerSelected(event) {
-    console.log(
-      "🚀 ~ Question ~ handleAnswerSelected ~ event.currentTarget:",
-      event.currentTarget
-    );
     this.setUserAnswer(event.currentTarget.value);
     if (this.state.questionId < quizQuestions.length) {
       setTimeout(() => this.setNextQuestion(), 800);
@@ -218,6 +216,7 @@ class Question extends Component {
     return (
       <Results
         resultColors={this.state.resultColors}
+        features={this.state.features}
         resultLetters={this.state.resultLetters}
         resultBriggs={this.state.resultBriggs}
       />
