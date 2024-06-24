@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <Intro
         _onStartClick={this._onStartClick}
-        title="Welcome To Personality Test"
+        title="Welcome To Aptitude Test"
       />
     );
   }
@@ -65,7 +65,7 @@ class App extends Component {
               textAlign: "right",
             }}
           >
-            Ma'am Marium Raza
+            Marium Raza
           </h6>
           <h6
             style={{

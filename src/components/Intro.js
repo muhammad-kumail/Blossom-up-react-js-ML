@@ -37,6 +37,28 @@ const Wrapper = styled.div`
 `;
 
 const Intro = ({ title, _onStartClick }) => {
+  const data = [
+    {
+      name: "Analytical",
+      Skill: 6,
+    },
+    {
+      name: "Technical",
+      Skill: 4,
+    },
+    {
+      name: "Organizational",
+      Skill: 2,
+    },
+    {
+      name: "Learn Skill",
+      Interest: 4,
+    },
+    {
+      name: "Technology",
+      Interest: 2,
+    },
+  ];
   return (
     <Wrapper className="container">
       <IntroCard>
@@ -45,13 +67,13 @@ const Intro = ({ title, _onStartClick }) => {
         <div className="corner" />
         <div className="corner" />
         <h1>{title}</h1>
-        {/* TODO: WILL CHANGE THIS THING DOWN HERE */}
         <ul className="list-group">
           <li className="list-group-item">
             Consits of {`${quizQuestions.length}`} questions
           </li>
           <li className="list-group-item">Answer honestly</li>
         </ul>
+        {/* <SkillChart data={data} /> */}
         <StartBtn onClick={_onStartClick}>
           <span style={{ color: colors.$colorGold }}>Let's Do This!</span>
           <div className="icon">

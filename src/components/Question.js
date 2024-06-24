@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { colors } from "../components/utils/_var";
 import Quiz from "../components/quiz/Quiz";
-import Results from "../components/result/Results";
 import quizQuestions from "../api/quizQuestions";
 import { QuestionCard } from "../components/utils/Cards";
+import Chart from "./result/Chart";
 
 const Wrapper = styled.div`
   position: fixed;
@@ -25,34 +25,8 @@ class Question extends Component {
       question: "",
       answerOptions: [],
       answer: "",
-      answersCount: {
-        Colors: {
-          Green: 10,
-          Brown: 10,
-          Blue: 10,
-          Red: 10,
-        },
-        Letters: {
-          A: 10,
-          B: 10,
-          C: 10,
-          D: 10,
-        },
-        Briggs: {
-          E: 5,
-          I: 5,
-          S: 5,
-          N: 5,
-          T: 5,
-          F: 5,
-          J: 5,
-          P: 5,
-        },
-      },
       features: [],
-      resultBriggs: "",
-      resultColors: "",
-      resultLetters: "",
+      isResult: false,
     };
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
   }
@@ -68,25 +42,7 @@ class Question extends Component {
 
   // setting the answer based on the user’s selection
   setUserAnswer(answer) {
-    const answersCount = this.state.answersCount;
-    let applyAnswer = (answer) => {
-      const answer_array = answer.split(",");
-      let briggsAnswer = answer_array[0];
-      let colorsAnswer = answer_array[1];
-      let lettersAnswer = answer_array[2];
-      if (answer_array.length === 3) {
-        answersCount["Briggs"][briggsAnswer] += 1;
-        answersCount["Colors"][colorsAnswer] += 1;
-        answersCount["Letters"][lettersAnswer] += 1;
-      } else if (answer_array.length === 4) {
-        answersCount["Briggs"][briggsAnswer] -= 1;
-        answersCount["Colors"][colorsAnswer] -= 1;
-        answersCount["Letters"][lettersAnswer] -= 1;
-      }
-      return answersCount;
-    };
     this.setState({
-      answersCount: applyAnswer(answer),
       answer: answer,
       features: [...this.state.features, Number(answer)],
     });
@@ -111,88 +67,9 @@ class Question extends Component {
     if (this.state.questionId < quizQuestions.length) {
       setTimeout(() => this.setNextQuestion(), 800);
     } else {
-      setTimeout(
-        () =>
-          this.setResults(
-            this.getColorsResults(),
-            this.getLettersResults(),
-            this.getBriggsResults()
-          ),
-        800
-      );
+      setTimeout(() => this.setState({ isResult: true }), 800);
     }
   }
-
-  // ===========================================================================
-  //                        get results
-  // ===========================================================================
-  getBriggsResults() {
-    const answerCount = this.state.answersCount;
-    const briggsAnswer = answerCount["Briggs"];
-    const answersCountKeysBriggs = Object.keys(briggsAnswer);
-    const answersCountValuesBriggs = answersCountKeysBriggs.map(
-      (key) => briggsAnswer[key]
-    );
-    let briggsType = "";
-    if (briggsAnswer.E >= briggsAnswer.I) {
-      briggsType += "E";
-    } else briggsType += "I";
-    if (briggsAnswer.S >= briggsAnswer.N) {
-      briggsType += "S";
-    } else briggsType += "N";
-    if (briggsAnswer.T >= briggsAnswer.F) {
-      briggsType += "T";
-    } else briggsType += "F";
-    if (briggsAnswer.J >= briggsAnswer.P) {
-      briggsType += "J";
-    } else briggsType += "P";
-    return briggsType;
-  }
-
-  getColorsResults() {
-    const answersCount = this.state.answersCount;
-    const colorsAnswer = answersCount["Colors"];
-    const answersCountKeysColors = Object.keys(colorsAnswer);
-    const answersCountValuesColors = answersCountKeysColors.map(
-      (key) => colorsAnswer[key]
-    );
-    const maxAnswerCountColors = Math.max.apply(null, answersCountValuesColors);
-    return answersCountKeysColors.filter(
-      (key) => colorsAnswer[key] === maxAnswerCountColors
-    );
-  }
-
-  getLettersResults() {
-    const answersCount = this.state.answersCount;
-    const lettersAnswer = answersCount["Letters"];
-    const answersCountKeysLetters = Object.keys(lettersAnswer);
-    const answersCountValuesLetters = answersCountKeysLetters.map(
-      (key) => lettersAnswer[key]
-    );
-    const maxAnswerCountLetters = Math.max.apply(
-      null,
-      answersCountValuesLetters
-    );
-    return answersCountKeysLetters.filter(
-      (key) => lettersAnswer[key] === maxAnswerCountLetters
-    );
-  }
-
-  // ===========================================================================
-  //                        set results
-  // ===========================================================================
-  setResults(resultColors, resultLetters, resultBriggs) {
-    if (resultColors.length >= 1) {
-      this.setState({ resultColors: resultColors[0] });
-    }
-    if (resultLetters.length >= 1) {
-      this.setState({ resultLetters: resultLetters[0] });
-    }
-    if (resultBriggs.length >= 1) {
-      this.setState({ resultBriggs: resultBriggs });
-    }
-  }
-
   // ===========================================================================
   //                    functions to render quiz
   // ===========================================================================
@@ -210,26 +87,11 @@ class Question extends Component {
   }
 
   // ===========================================================================
-  //                    functions to render result
-  // ===========================================================================
-  renderResult() {
-    return (
-      <Results
-        resultColors={this.state.resultColors}
-        features={this.state.features}
-        resultLetters={this.state.resultLetters}
-        resultBriggs={this.state.resultBriggs}
-      />
-    );
-  }
-
-  // ===========================================================================
   //                       render this question page
   // ===========================================================================
   render() {
-    let resultBriggs = this.state.resultBriggs;
-    if (resultBriggs) {
-      return this.renderResult();
+    if (this.state.isResult) {
+      return <Chart features={this.state.features} />;
     }
     return (
       <Wrapper className="container">
