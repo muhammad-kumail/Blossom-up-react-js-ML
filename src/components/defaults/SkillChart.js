@@ -13,6 +13,8 @@ import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 export function SkillChart({ data }) {
   const { height, width } = useWindowDimensions();
+  // const height = 1200;
+  // const width = 1600;
   console.log("🚀 ~ SkillChart ~ width:", width);
   const skillLevel = (value) => {
     if (value === 2) return "Low";
